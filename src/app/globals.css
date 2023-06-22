@@ -25,3 +25,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+input[type='range']::-webkit-slider-thumb {
+  @apply h-6 w-6 cursor-pointer appearance-none rounded-full bg-blue-500 dark:bg-blue-400;
+}
+input[type='range']::-moz-range-thumb {
+  @apply h-6 w-6 cursor-pointer rounded-full bg-blue-500 dark:bg-blue-400;
+}
+
+.modal-size {
+  max-width: 90vw;
+  max-height: 95vh;
+}
