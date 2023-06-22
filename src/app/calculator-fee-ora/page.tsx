@@ -1,6 +1,5 @@
 'use client';
 
-import Modal from '@/components/legal-modal';
 import { SliderAcoperire } from '@/components/sliderAcoperire';
 import TabelPlafon from '@/components/tabel-plafon';
 import { Input } from '@/components/ui/input';
@@ -79,13 +78,12 @@ const CalculatorFeeOra = () => {
   return (
     <div className="mx-auto max-w-3xl p-2">
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        Calculator pentru PFA cu impozitare reala
+        Calculator tarif orar PFA cu impozitare reală
       </h1>
       <div className="mt-4 flex justify-between">
         <p className="leading-7">Curs EUR: {exchangeRate}</p>
         <p className="leading-7">Salariu minim: {salariuMinim}</p>
       </div>
-      <Modal />
       <TabelPlafon salariuMinim={salariuMinim} />
       <p className="leading-7">
         Dari la stat: Impozit pe venit (10%), CAS (25%), CASS (10%)
@@ -124,6 +122,10 @@ const CalculatorFeeOra = () => {
             />
           </div>
         </div>
+        <p>
+          MAI AI SI ALTE VENITURI ? DA, ATUNCI CAT ? TREBE CUMULATE PENTRU A
+          VEDEA CATEGOIRIE DE CAS CASS
+        </p>
         <div className="auto-grid mb-4">
           <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="oreZi">Ore lucrate pe zi:</Label>
@@ -145,7 +147,7 @@ const CalculatorFeeOra = () => {
             />
           </div>
         </div>
-        {/* Checkboxes and labels */}
+        {/* Checkboxes */}
         <div className="mb-4 flex">
           <div className="mr-2 w-1/2">
             <label className="mr-2 ">
@@ -169,9 +171,23 @@ const CalculatorFeeOra = () => {
             />
           </div>
         </div>
+        <div className="mb-4 flex">
+          <div className="mr-2 w-1/2">
+            <label className="mr-2 ">
+              Doresc sa platesc CASS chiar daca sunt sub plafonul de 6 salarii
+              minime:
+            </label>
+            <input
+              className="h-4 w-4 rounded border-gray-300 text-blue-600 shadow-sm"
+              type="checkbox"
+              name="checkbox1"
+            />
+          </div>
+          <p>CAT DORESTI SA PLATESTI CASS ?</p>
+        </div>
         <div className="mb-4">
           <label htmlFor="procentAcoperire">
-            In ce procent doresti ca acest tarif sa acopere taxele si impozitele
+            In ce procent doresti ca acest tarif sa acopere taxele(CAS & CASS)
             anuale?
           </label>
           <div className="flex flex-row items-center">
