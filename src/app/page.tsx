@@ -1,6 +1,3 @@
-'use client';
-
-import { getEurRateEcb } from '@/utils/currency';
 import Link from 'next/link';
 
 export default function Home() {
