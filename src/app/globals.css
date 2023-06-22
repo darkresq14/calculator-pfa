@@ -84,3 +84,9 @@
   max-width: 90vw;
   max-height: 95vh;
 }
+
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  grid-gap: 1rem;
+}
