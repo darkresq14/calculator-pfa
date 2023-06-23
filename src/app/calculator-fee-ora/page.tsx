@@ -2,6 +2,7 @@
 
 import { SliderAcoperire } from '@/components/sliderAcoperire';
 import TabelPlafon from '@/components/tabel-plafon';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
@@ -19,6 +20,8 @@ const CalculatorFeeOra = () => {
     oreZi: 8,
     procentAcoperire: [100],
     value4: 0,
+    plataVoluntaraCassCheckbox: false,
+    plataVoluntaraCass: 0,
   });
 
   const [exchangeRate, setExchangeRate] = useState(5.0);
@@ -44,6 +47,10 @@ const CalculatorFeeOra = () => {
     handleChange(event);
   };
 
+  // const handleCheckboxChange = (e) => {
+  //   console.log(e.target);
+  // };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
@@ -66,6 +73,7 @@ const CalculatorFeeOra = () => {
           ),
           netDoritLunaEur: Number(fieldValue),
         }));
+        break;
       default:
         setFormData((prevState) => ({
           ...prevState,
@@ -84,7 +92,7 @@ const CalculatorFeeOra = () => {
         <p className="leading-7">Curs EUR: {exchangeRate}</p>
         <p className="leading-7">Salariu minim: {salariuMinim}</p>
       </div>
-      <TabelPlafon salariuMinim={salariuMinim} />
+      <TabelPlafon />
       <p className="leading-7">
         Dari la stat: Impozit pe venit (10%), CAS (25%), CASS (10%)
       </p>
@@ -149,41 +157,47 @@ const CalculatorFeeOra = () => {
         </div>
         {/* Checkboxes */}
         <div className="mb-4 flex">
-          <div className="mr-2 w-1/2">
-            <label className="mr-2 ">
-              Doresc sa platesc CAS chiar daca sunt sub plafonul de 12 salarii:
-            </label>
-            <input
-              className="h-4 w-4 rounded border-gray-300 text-blue-600 shadow-sm"
-              type="checkbox"
-              name="checkbox1"
-            />
+          <div className="mr-2 flex w-1/2 items-center space-x-2">
+            <Checkbox name="checkbox1" />
+            <Label>
+              Doresc sa platesc CAS chiar daca sunt sub plafonul de 12 salarii
+            </Label>
           </div>
-          <div className="ml-2 w-1/2">
-            <label className="mr-2 ">
+          <div className="ml-2 flex w-1/2 items-center space-x-2">
+            <Checkbox name="checkbox2" />
+            <Label>
               Nu platesc CAS (ex. pensionari, avocati, notari, personal
               clerical, etc.)
-            </label>
-            <input
-              className="h-4 w-4 rounded border-gray-300 text-blue-600 shadow-sm"
-              type="checkbox"
-              name="checkbox2"
-            />
+            </Label>
           </div>
         </div>
         <div className="mb-4 flex">
-          <div className="mr-2 w-1/2">
-            <label className="mr-2 ">
-              Doresc sa platesc CASS chiar daca sunt sub plafonul de 6 salarii
-              minime:
-            </label>
-            <input
-              className="h-4 w-4 rounded border-gray-300 text-blue-600 shadow-sm"
-              type="checkbox"
+          <div className="mr-2 flex w-1/2 items-center space-x-2">
+            <Checkbox
               name="checkbox1"
+              // checked={formData.plataVoluntaraCassCheckbox}
+              // onCheckedChange={handleCheckboxChange}
             />
+            <Label className="mr-2 ">
+              Doresc sa platesc CASS chiar daca sunt sub plafonul de 6 salarii
+              minime
+            </Label>
           </div>
-          <p>CAT DORESTI SA PLATESTI CASS ?</p>
+          {formData.plataVoluntaraCass ? (
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="plataVoluntaraCass">
+                Suma plata voluntara CASS:
+              </Label>
+              <Input
+                type="number"
+                name="plataVoluntaraCass"
+                value={formData.plataVoluntaraCass}
+                onChange={handleChange}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="mb-4">
           <label htmlFor="procentAcoperire">

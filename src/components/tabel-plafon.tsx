@@ -1,107 +1,58 @@
-import { PROCENT_CAS, PROCENT_CASS } from '@/utils/constants';
 import React from 'react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from './ui/table';
+import { taxCategories } from '@/utils/tax-category';
 
-interface TabelPlafonProps {
-  salariuMinim: number;
-}
-
-const TabelPlafon = ({ salariuMinim }: TabelPlafonProps) => {
+const TabelCategoria = () => {
   return (
     <div className="my-6 rounded bg-white shadow-md dark:bg-gray-800">
-      <p className="text-red-600">FA HIGHLIGHT PE PLAFONUL IN CARE NE AFLAM</p>
-      <div className="auto-grid">
-        <p className="text-xs">
-          {'0 RON <= '}Plafon 0{' < ' + (6 * salariuMinim - 1) + ' RON'}
-        </p>
-        <p className="text-xs">
-          {6 * salariuMinim + ' RON' + ' <= '}Plafon 1
-          {' < ' + (12 * salariuMinim - 1) + ' RON'}
-        </p>
-        <p className="text-xs">
-          {12 * salariuMinim + ' RON' + ' <= '}Plafon 2
-          {' < ' + (24 * salariuMinim - 1) + ' RON'}
-        </p>
-        <p className="text-xs">{24 * salariuMinim + ' RON' + ' <= '}Plafon 3</p>
-      </div>
-      <div className="my-6 w-full overflow-y-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="bm-0 border-t p-0 even:bg-muted">
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"></th>
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                CAS
-              </th>
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                CASS
-              </th>
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                FNUASS
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="m-0 border-t p-0 even:bg-muted">
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                Plafon 0
-                <br />
-              </th>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                0
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                0
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                x
-              </td>
-            </tr>
-            <tr className="m-0 border-t p-0 even:bg-muted">
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                Plafon 1<br />
-              </th>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                0
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                {(PROCENT_CASS * 6 * salariuMinim) / 100}
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                x
-              </td>
-            </tr>
-            <tr className="m-0 border-t p-0 even:bg-muted">
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                Plafon 2<br />
-              </th>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                {(PROCENT_CAS * 12 * salariuMinim) / 100}
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                {(PROCENT_CASS * 12 * salariuMinim) / 100}
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                x
-              </td>
-            </tr>
-            <tr className="m-0 border-t p-0 even:bg-muted">
-              <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-                Plafon 3<br />
-              </th>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                {(PROCENT_CAS * 24 * salariuMinim) / 100}
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                {(PROCENT_CASS * 24 * salariuMinim) / 100}
-              </td>
-              <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
-                x
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p className="text-red-600">
+        FA HIGHLIGHT PE CategoriaUL IN CARE NE AFLAM
+      </p>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead></TableHead>
+            <TableHead>CAS</TableHead>
+            <TableHead>CASS</TableHead>
+            <TableHead>FNUASS</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableHead>{taxCategories[0].name}</TableHead>
+            <TableCell>{taxCategories[0].CAS}</TableCell>
+            <TableCell>{taxCategories[0].CASS}</TableCell>
+            <TableCell>x</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableHead>{taxCategories[1].name}</TableHead>
+            <TableCell>{taxCategories[1].CAS}</TableCell>
+            <TableCell>{taxCategories[1].CASS}</TableCell>
+            <TableCell>x</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableHead>{taxCategories[2].name}</TableHead>
+            <TableCell>{taxCategories[2].CAS}</TableCell>
+            <TableCell>{taxCategories[2].CASS}</TableCell>
+            <TableCell>x</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableHead>{taxCategories[3].name}</TableHead>
+            <TableCell>{taxCategories[3].CAS}</TableCell>
+            <TableCell>{taxCategories[3].CASS}</TableCell>
+            <TableCell>x</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
     </div>
   );
 };
 
-export default TabelPlafon;
+export default TabelCategoria;
