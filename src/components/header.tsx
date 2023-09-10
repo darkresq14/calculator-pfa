@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { ModeToggle } from './mode-toggle';
 import Link from 'next/link';
 import Modal from './legal-modal';
+import { Icons } from './icons';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +27,12 @@ const Header = () => {
             <div className="ml-10 flex items-center space-x-4">
               <Modal />
               <ModeToggle />
+              <a
+                href="https://github.com/darkresq14/calculator-pfa"
+                target="_blank"
+                rel="noopener noreferrer">
+                <Icons.lucideGithub />
+              </a>
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -80,7 +87,15 @@ const Header = () => {
         id="mobile-menu">
         <div className="flex flex-col items-start space-y-1 px-2 pb-3 pt-2 sm:px-3">
           <Modal />
-          <ModeToggle />
+          <div className="flex flex-row items-center gap-2 px-2 pb-3 pt-2">
+            <ModeToggle />
+            <a
+              href="https://github.com/darkresq14/calculator-pfa"
+              target="_blank"
+              rel="noopener noreferrer">
+              <Icons.lucideGithub />
+            </a>
+          </div>
         </div>
       </div>
     </nav>

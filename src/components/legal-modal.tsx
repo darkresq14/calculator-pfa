@@ -165,7 +165,7 @@ const Modal = () => {
             <p className="mb-2 indent-6">
               Persoanele fizice care nu se încadrează în plafonul de cel puţin
               12 salarii{' '}
-              <span className="text-red-500 dark:text-red-400">pot opta</span>
+              <span className="text-red-500 dark:text-red-400">pot opta</span>{' '}
               pentru plata contribuţiei de asigurări sociale pentru anul curent
               în condiţiile prevăzute pentru persoanele care estimează că
               realizează venituri anuale peste nivelul a 12 salarii minime brute
